@@ -32,6 +32,10 @@ ALLOWED_HOSTS=['*']
 CSRF_TRUSTED_ORIGINS = [
     'http://localhost:3000',
     'http://localhost:8000',
+    'https://tykdbk-8000',
+    'http://172.17.47.32:8888',
+    'https://tykdbk-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai',
+    'https://tykdbk-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/'
 ]
 
 
