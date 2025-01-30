@@ -1,68 +1,168 @@
-<html>
+<html lang="en">
 <head>
-  <!-- Link the style sheet here -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/bootstrap.min.css">
+  <title>About Us - Best Cars Dealership</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+    }
+    nav {
+      background-color: #008B8B;
+      height: 80px;
+    }
+    nav h2 {
+      color: white;
+      padding-left: 20px;
+      line-height: 80px;
+    }
+    nav .nav-link {
+      font-size: 18px;
+      padding: 15px 20px;
+      color: white;
+    }
+    .banner {
+      text-align: center;
+      background-color: #007f7f;
+      color: white;
+      padding: 50px 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+    .banner h1 {
+      font-size: 2.5em;
+      font-weight: bold;
+    }
+    .banner p {
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+    .card {
+      margin: 20px;
+      border: none;
+      border-radius: 8px;
+    }
+    .card-body {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    .card img {
+      border-radius: 50%;
+      width: 100%;
+      max-width: 150px;
+      height: auto;
+      margin: 0 auto;
+    }
+    .team-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+    .team-member {
+      width: 30%;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .team-member h5 {
+      font-size: 1.5em;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    .team-member p {
+      color: #555;
+      margin-top: 5px;
+    }
+    .team-member .email {
+      font-size: 1em;
+      color: #007f7f;
+      text-decoration: none;
+    }
+    .team-member .email:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
-<div>
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color:darkturquoise; height: 1in;">
+
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
-      <h2 style="padding-right: 5%;">Dealerships</h2>
+      <h2>Best Cars Dealership</h2>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" style="font-size: larger;" aria-current="page" href="/">Home</a>
+            <a class="nav-link" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" style="font-size: larger;" href="/about">About Us</a>
+            <a class="nav-link active" href="/about">About Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" style="font-size: larger;" href="/contact">Contact Us</a>
+            <a class="nav-link" href="/contact">Contact Us</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-  
-    <div class="card" style="width: 80%;margin: auto; margin-top:5%;">
-      <div class="banner" name="about-header">
-      <!-- Insert header information here -->
-      </div>
-      <div style="display: flex;flex-direction: row; margin:auto">
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/person.png" alt="Card image">
-        <div class="card-body">
-          <p class="title">Person1</p>
-          <p>Person1 Title</p>
-          <p class="card-text">Some text that explains the person1 in about 2 short sentences</p>
-          <p>person1@example.com</p>
+
+  <!-- About Us Section -->
+  <div class="banner">
+    <h1>Welcome to Best Cars Dealership!</h1>
+    <p>We're passionate about bringing you the finest selection of cars from around the world, all at unbeatable prices. Whether you're looking for a luxurious ride or a reliable daily driver, we have something for everyone.</p>
+  </div>
+
+  <!-- Our Team Section -->
+  <div class="container">
+    <div class="team-container">
+      
+      <div class="team-member">
+        <div class="card">
+          <img src="/static/person.png" alt="Team Member Image">
+          <div class="card-body">
+            <h5>John Doe</h5>
+            <p>CEO & Founder</p>
+            <p class="text-muted">John has over 20 years of experience in the automotive industry and founded Best Cars with a mission to provide excellent service and quality vehicles.</p>
+            <a href="mailto:john.doe@example.com" class="email">john.doe@example.com</a>
+          </div>
         </div>
       </div>
 
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/person.png" alt="Card image">
-        <div class="card-body">
-          <p class="title">Person2</p>
-          <p>Person2 Title</p>
-          <p class="card-text">Some text that explains the person2 in about 2 short sentences</p>
-          <p>person2@example.com</p>
+      <div class="team-member">
+        <div class="card">
+          <img src="/static/person.png" alt="Team Member Image">
+          <div class="card-body">
+            <h5>Jane Smith</h5>
+            <p>Sales Manager</p>
+            <p class="text-muted">Jane leads our sales team with a passion for helping customers find their perfect car. Her expert knowledge and dedication make her an asset to our dealership.</p>
+            <a href="mailto:jane.smith@example.com" class="email">jane.smith@example.com</a>
+          </div>
         </div>
       </div>
 
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/person.png" alt="Card image">
-        <div class="card-body">
-          <p class="title">Person3</p>
-          <p>Person3 Title</p>
-          <p class="card-text">Some text that explains the person3 in about 2 short sentences</p>
-          <p>person3@example.com</p>
+      <div class="team-member">
+        <div class="card">
+          <img src="/static/person.png" alt="Team Member Image">
+          <div class="card-body">
+            <h5>Michael Johnson</h5>
+            <p>Customer Support</p>
+            <p class="text-muted">Michael is always ready to assist with any inquiries or concerns. His friendly nature and commitment to customer satisfaction make him a vital part of our team.</p>
+            <a href="mailto:michael.johnson@example.com" class="email">michael.johnson@example.com</a>
+          </div>
         </div>
       </div>
-    </div>
-    </div>
-    </div>
-    
-</div>
 
+    </div>
+  </div>
+
+</body>
 </html>
