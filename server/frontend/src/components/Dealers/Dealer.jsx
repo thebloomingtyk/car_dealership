@@ -24,7 +24,7 @@ const Dealer = () => {
   let reviews_url = root_url+`djangoapp/reviews/dealer/${id}`;
   let post_review = root_url+`postreview/${id}`;
   
-  const get_dealer = async ()=>{
+  const get_dealer_o = async ()=>{
     const res = await fetch(dealer_url, {
       method: "GET"
     });
@@ -35,6 +35,26 @@ const Dealer = () => {
       setDealer(dealerobjs[0])
     }
   }
+
+
+  const get_dealer = async () => {
+    const res = await fetch(dealer_url, {
+      method: "GET",
+    });
+    const retobj = await res.json();
+    
+    console.log(retobj);  // Debugging line to check the API response
+    
+    if (retobj.status === 200) {
+      let dealerobjs = Array.from(retobj.dealer);
+      if (dealerobjs.length > 0) {
+        setDealer(dealerobjs[0]);
+      }
+    } else {
+      console.error("Error fetching dealer:", retobj);
+    }
+  }
+  
 
   const get_reviews = async ()=>{
     const res = await fetch(reviews_url, {
@@ -67,26 +87,75 @@ const Dealer = () => {
   },[]);  
 
 
-return(
-  <div style={{margin:"20px"}}>
-      <Header/>
-      <div style={{marginTop:"10px"}}>
-      <h1 style={{color:"grey"}}>{dealer.full_name}{postReview}</h1>
-      <h4  style={{color:"grey"}}>{dealer['city']},{dealer['address']}, Zip - {dealer['zip']}, {dealer['state']} </h4>
+  return (
+    <div style={{ margin: "20px" }}>
+      <Header />
+      <div style={{ marginTop: "10px" }}>
+        {dealer ? (
+          <>
+            <h1 style={{ color: "grey" }}>
+              {dealer.full_name} {postReview}
+            </h1>
+            <h4 style={{ color: "grey" }}>
+              {dealer.city}, {dealer.address}, Zip - {dealer.zip}, {dealer.state}
+            </h4>
+            <h4 style={{ color: "grey" }}>
+            {dealer?.city || 'City not available'}, 
+            {dealer?.address || 'Address not available'}, 
+            Zip - {dealer?.zip || 'N/A'}, 
+            {dealer?.state || 'State not available'}
+          </h4>
+          </>
+        ) : (
+          <p>Loading dealer information...</p>
+        )}
       </div>
-      <div class="reviews_panel">
-      {reviews.length === 0 && unreviewed === false ? (
-        <text>Loading Reviews....</text>
-      ):  unreviewed === true? <div>No reviews yet! </div> :
-      reviews.map(review => (
-        <div className='review_panel'>
-          <img src={senti_icon(review.sentiment)} className="emotion_icon" alt='Sentiment'/>
-          <div className='review'>{review.review}</div>
-          <div className="reviewer">{review.name} {review.car_make} {review.car_model} {review.car_year}</div>
-        </div>
-      ))}
-    </div>  
-  </div>
+      <div className="reviews_panel">
+        {reviews.length === 0 && unreviewed === false ? (
+          <text>Loading Reviews....</text>
+        ) : unreviewed === true ? (
+          <div>No reviews yet!</div>
+        ) : (
+          reviews.map((review) => (
+            <div className="review_panel" key={review.id}>
+              <img
+                src={senti_icon(review.sentiment)}
+                className="emotion_icon"
+                alt="Sentiment"
+              />
+              <div className="review">{review.review}</div>
+              <div className="reviewer">
+                {review.name} {review.car_make} {review.car_model} {review.car_year}
+              </div>
+            </div>
+          ))
+        )}
+      </div>
+    </div>
+  
+  
+
+
+// return(
+//   <div style={{margin:"20px"}}>
+//       <Header/>
+//       <div style={{marginTop:"10px"}}>
+//       <h1 style={{color:"grey"}}>{dealer?.full_name}{postReview}</h1>
+//       <h4  style={{color:"grey"}}>{dealer['city']},{dealer['address']}, Zip - {dealer['zip']}, {dealer['state']} </h4>
+//       </div>
+//       <div class="reviews_panel">
+//       {reviews.length === 0 && unreviewed === false ? (
+//         <text>Loading Reviews....</text>
+//       ):  unreviewed === true? <div>No reviews yet! </div> :
+//       reviews.map(review => (
+//         <div className='review_panel'>
+//           <img src={senti_icon(review.sentiment)} className="emotion_icon" alt='Sentiment'/>
+//           <div className='review'>{review.review}</div>
+//           <div className="reviewer">{review.name} {review.car_make} {review.car_model} {review.car_year}</div>
+//         </div>
+//       ))}
+//     </div>  
+//   </div>
 )
 }
 
